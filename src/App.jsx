@@ -118,7 +118,7 @@ function App() {
           <div className="md:ml-auto animate__animated animate__fadeInUp animate__delay-4s">
             <ProfileCard
               name="Rafi Amrullah"
-              title="Web Developer"
+              title="Web Developer & Graphic Designer"
               handle="imrapii"
               status="Vacation"
               contactText="Contact Me"
@@ -130,6 +130,64 @@ function App() {
             />
           </div>
         </div>
+
+        {/* tentang */}
+        <div className="mt-16 mx-auto w-full max-w-[1600px] rounded-3xl border-[5px] border-violet-500/40 shadow-[0_0_30px_rgba(168,85,247,0.4)] bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#1a1a1a] p-6" id="about">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 pt-0 px-8" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+            <div className="basis-full md:basis-7/12 pr-0 md:pr-8 border-b md:border-b-0 md:border-r border-violet-500/30">
+              {/* Kolom kiri */}
+              <div className="flex-1 text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
+                  About Me
+                </h2>
+
+                <BlurText
+                  text="I’m Faris Edrik Prayoga, a full-stack developer passionate about building modern, high-performance applications with an intuitive user experience. I enjoy working with the latest technologies like Artificial Intelligence, Machine Learning, and cloud-based development, blending creativity with precision to deliver impactful solutions. With over three years of experience and more than 20 completed projects, I’m committed to helping users and businesses grow in the digital era through functional, aesthetic, and scalable digital products."
+                  delay={150}
+                  animateBy="words"
+                  direction="top"
+                  className="text-base md:text-lg leading-relaxed mb-10 text-gray-300"
+                />
+
+                <div className="flex flex-col sm:flex-row items-center sm:justify-between text-center sm:text-left gap-y-8 sm:gap-y-0 mb-4 w-full">
+                  <div>
+                    <h1 className="text-3xl md:text-4xl mb-1">
+                      20<span className="text-violet-500">+</span>
+                    </h1>
+                    <p>Project Finished</p>
+                  </div>
+                  <div>
+                    <h1 className="text-3xl md:text-4xl mb-1">
+                      3<span className="text-violet-500">+</span>
+                    </h1>
+                    <p>Years of Experience</p>
+                  </div>
+                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" data-aos-once="true">
+                    <h1 className="text-3xl md:text-4xl mb-1">
+                      3.57<span className="text-violet-500">/4.00</span>
+                    </h1>
+                    <p>GPA</p>
+                  </div>
+                </div>
+
+
+                <ShinyText
+                  text="Working with heart, creating with mind."
+                  disabled={false}
+                  speed={3}
+                  className="text-sm md:text-base text-violet-400"
+                />
+              </div>
+            </div>
+
+            {/* Kolom kanan */}
+            <div className="basis-full md:basis-5/12 pl-0 md:pl-8 overflow-hidden max-w-full flex justify-center ">
+              <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+            </div>
+          </div>
+
+        </div>
+
 
         {/* ... (lanjutan sama persis punyamu, cukup pastikan semua asset pakai `/assets/...`) */}
         <div className="tools mt-32">

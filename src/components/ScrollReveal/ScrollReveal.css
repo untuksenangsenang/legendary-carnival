@@ -1,13 +1,49 @@
+/* ScrollReveal.css */
+
 .scroll-reveal {
-  margin: 20px 0;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
+/* Container text */
 .scroll-reveal-text {
-  font-size: clamp(1.6rem, 4vw, 3rem);
-  line-height: 1.5;
-  font-weight: 600;
+  font-size: 2.25rem; /* sesuaikan */
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap; /* agar spasi preserved */
+  display: block;
 }
 
-.word {
+/* Per-word element */
+.sr-word {
   display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap; /* kata jangan wrap sendiri */
+  will-change: transform, opacity, filter;
+  /* fallback transition jika JS gagal */
+  transition: transform 300ms ease, opacity 300ms ease, filter 300ms ease;
+}
+
+/* gradient text (vendor-prefixed) */
+.sr-gradient .sr-word {
+  background: linear-gradient(90deg, #B700FF 0%, #2100C9 50%, #00BDCB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* untuk WebKit */
+  background-clip: text; /* non-standard, but safe to include */
+  color: transparent; /* fallback */
+}
+
+/* Hover interaksi ringan */
+.sr-word:hover {
+  transform: translateY(-4px) scale(1.04) rotate(-1.5deg);
+}
+
+/* Responsive: perkecil font di layar kecil */
+@media (max-width: 640px) {
+  .scroll-reveal-text {
+    font-size: 1.6rem;
+  }
 }

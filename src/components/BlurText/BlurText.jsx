@@ -7,7 +7,6 @@ const buildKeyframes = (from, steps) => {
     ...Object.keys(from),
     ...steps.flatMap((s) => Object.keys(s)),
   ]);
-
   const keyframes = {};
   keys.forEach((k) => {
     keyframes[k] = [from[k], ...steps.map((s) => s[k])];
@@ -28,6 +27,9 @@ const BlurText = ({
   easing = (t) => t,
   onAnimationComplete,
   stepDuration = 0.35,
+  colorFrom = '#9ca3af', // awal abu-abu (opsional)
+  colorTo = '#ffffff',   // akhir putih
+  randomDelay = true,
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
   const [inView, setInView] = useState(false);
@@ -46,27 +48,40 @@ const BlurText = ({
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [threshold, rootMargin]);
 
-  const defaultFrom = useMemo(
-    () =>
-      direction === 'top'
-        ? { filter: 'blur(10px)', opacity: 0, y: -50 }
-        : { filter: 'blur(10px)', opacity: 0, y: 50 },
-    [direction]
-  );
+  // arah animasi
+  const defaultFrom = useMemo(() => {
+    switch (direction) {
+      case 'left':
+        return { filter: 'blur(10px)', opacity: 0, x: -50 };
+      case 'right':
+        return { filter: 'blur(10px)', opacity: 0, x: 50 };
+      case 'bottom':
+        return { filter: 'blur(10px)', opacity: 0, y: 50 };
+      default:
+        return { filter: 'blur(10px)', opacity: 0, y: -50 };
+    }
+  }, [direction]);
 
   const defaultTo = useMemo(
     () => [
       {
-        filter: 'blur(5px)',
-        opacity: 0.5,
-        y: direction === 'top' ? 5 : -5,
+        filter: 'blur(4px)',
+        opacity: 0.6,
+        scale: 0.95,
+        color: colorFrom,
       },
-      { filter: 'blur(0px)', opacity: 1, y: 0 },
+      {
+        filter: 'blur(0px)',
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        color: colorTo, // akhir putih
+      },
     ],
-    [direction]
+    [colorFrom, colorTo]
   );
 
   const fromSnapshot = animationFrom ?? defaultFrom;
@@ -90,9 +105,9 @@ const BlurText = ({
         const spanTransition = {
           duration: totalDuration,
           times,
-          delay: (index * delay) / 1000,
+          delay: ((randomDelay ? Math.random() * 0.6 : index * delay) / 1000),
         };
-        (spanTransition).ease = easing;
+        spanTransition.ease = easing;
 
         return (
           <motion.span
