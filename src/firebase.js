@@ -1,25 +1,28 @@
 // src/firebase.js
+
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBFgA6JpGqNBrWPfR-lKercjvy5Y6ky7zc",
-  authDomain: "webportofolio-8498b.firebaseapp.com",
-  projectId: "webportofolio-8498b",
-  storageBucket: "webportofolio-8498b.firebasestorage.app",
-  messagingSenderId: "543954266098",
-  appId: "1:543954266098:web:029e84a24273fd15d62d6b"
+  apiKey: "AIzaSyB4Gq9cgNEctwAMjvH6B0rT82_q9wk-1zU",
+  authDomain: "portofolio-imrapii-5236f.firebaseapp.com",
+  projectId: "portofolio-imrapii-5236f",
+  storageBucket: "portofolio-imrapii-5236f.firebasestorage.app",
+  messagingSenderId: "129491200133",
+  appId: "1:129491200133:web:acd8819aa8693b4e98a1ec",
+  measurementId: "G-ZKV341RMKH"
 };
 
-// Init Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Auth
+// Authentication
 export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+
 export const loginWithGoogle = () => signInWithPopup(auth, provider);
 export const logout = () => signOut(auth);
 
-// Firestore
+// Firestore Database
 export const db = getFirestore(app);
