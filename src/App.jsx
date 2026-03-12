@@ -2,7 +2,6 @@ import { useRef, useState, useEffect } from "react";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import ShinyText from "./components/ShinyText/ShinyText";
 import BlurText from "./components/BlurText/BlurText";
-import Lanyard from "./components/Lanyard/Lanyard";
 import { listTools, listProyek } from "./data";
 import ChromaGrid from "./components/ChromaGrid/ChromaGrid";
 import ProjectModal from "./components/ProjectModal/ProjectModal";
@@ -116,7 +115,7 @@ function App() {
           <div className="md:ml-auto">
             <ProfileCard
               name="Rafi Amrullah"
-              title="Web Developer & Graphic Designer"
+              title="Web Developer"
               handle="imrapii"
               avatarUrl="/assets/rapi.png"
               showUserInfo={true}
@@ -135,7 +134,7 @@ function App() {
     <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
       I’m <span className="text-violet-400 font-semibold">Rafi Amrullah Al-Baihaqi</span>, 
       an Information Systems student with a strong passion for 
-      <span className="text-violet-400"> Web Development</span>. 
+      <span className="text-violet-400">Web Development</span>. 
       I enjoy building modern, responsive, and user-friendly websites that 
       combine clean design with efficient functionality.
     </p>
@@ -144,17 +143,17 @@ function App() {
   <div className="grid md:grid-cols-3 gap-8 text-center">
 
     <div className="bg-zinc-800/60 p-6 rounded-xl border border-zinc-700 hover:border-violet-500 transition">
-      <h3 className="text-3xl font-bold text-white mb-2">20+</h3>
+      <h3 className="text-3xl font-bold text-white mb-2">5+</h3>
       <p className="text-gray-400">Projects Completed</p>
     </div>
 
     <div className="bg-zinc-800/60 p-6 rounded-xl border border-zinc-700 hover:border-violet-500 transition">
       <h3 className="text-3xl font-bold text-white mb-2">Web Dev</h3>
-      <p className="text-gray-400">React, JavaScript, Firebase</p>
+      <p className="text-gray-400">Full-Stack Focus</p>
     </div>
 
     <div className="bg-zinc-800/60 p-6 rounded-xl border border-zinc-700 hover:border-violet-500 transition">
-      <h3 className="text-3xl font-bold text-white mb-2">3.57</h3>
+      <h3 className="text-3xl font-bold text-white mb-2">3.55</h3>
       <p className="text-gray-400">Current GPA</p>
     </div>
 
